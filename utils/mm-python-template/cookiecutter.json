@@ -2,7 +2,7 @@
   "author": "Data Scientist",
   "author_email": "data.scientist@labshare.org",
   "plugin_name": "Awesome Plugin",
-  "plugin_package": "polus.mm.utils.package1.package2.awesome_function",
+  "plugin_package": "polus.mm.utils.awesome_function",
   "plugin_description": "An awesome function.",
   "plugin_version": "0.1.0",
   "inputs": {

@@ -2,6 +2,7 @@ FROM condaforge/mambaforge
 
 ENV EXEC_DIR="/opt/executables"
 ENV POLUS_LOG="INFO"
+RUN mkdir -p ${EXEC_DIR}
 
 
 # Work directory defined in the base container
@@ -14,10 +15,10 @@ COPY CHANGELOG.md ${EXEC_DIR}
 
 # Install needed packages here
 
+RUN pip install filepattern
+
 COPY src ${EXEC_DIR}/src
 
 RUN pip3 install ${EXEC_DIR} --no-cache-dir
 
-# Default command. Additional arguments are provided through the command line
-ENTRYPOINT ["python3", "-m", "{{cookiecutter.plugin_package}}"]
 CMD ["--help"]
