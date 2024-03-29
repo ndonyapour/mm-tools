@@ -7,8 +7,8 @@ pipx install poetry
 pipx install bump2version
 pipx install cookiecutter
 pipx install pre-commit # for code sanitation
+pip install ruamel.yaml
 cd ~/mm-tools
-pre-commit install
 ```
 
 # Set Mount Directory Environment Variables
