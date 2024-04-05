@@ -8,6 +8,7 @@ def test_convert_mol2():
     """Test convert_mol2."""
     
     input_path = "4xk9_ligand.sdf" 
+    input_path = str(Path(__file__).resolve().parent / Path(input_path))
     output_mol2_path = "ligand.mol2"
 
     # Define the command to pull the Docker image
@@ -22,9 +23,10 @@ def test_convert_mol2():
     tool_mount_path_output = Path.cwd()  # Update this with your actual path
     docker_run_command = f"docker run -v \
     {tool_mount_path_output}:{container_output_dir}\
+    --mount=type=bind,source={input_path},target={input_path}\
     --name obabel_container {docker_image_name}\
-     obabel\
-    {shlex.quote(input_path)} -o mol2 -O {shlex.quote(output_mol2_path)} -xu"
+    obabel\
+    {input_path} -o mol2 -O {shlex.quote(output_mol2_path)} -xu"
     subprocess.run(docker_run_command, shell=True)  # noqa: S602
 
     # Copy the output file from the container to the host
@@ -40,4 +42,10 @@ def test_convert_mol2():
     subprocess.run(docker_rm_command, shell=True)  # noqa: S602
 
     # assert that the output file exists
-    #assert Path(output_mol2_path).exists()
+    assert Path(output_mol2_path).exists()
+    
+# def test_convert_mol2_cwl():
+    
+#     input_path = "4xk9_ligand.sdf" 
+#     input_path = str(Path(__file__).resolve().parent / Path(input_path))
+#     output_mol2_path = "ligand.mol2"
