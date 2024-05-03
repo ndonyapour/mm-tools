@@ -1,0 +1,43 @@
+specVersion: "0.1.0"
+name: convert_xyz
+version: 0.1.0
+container: convert-xyz-plugin
+entrypoint:
+title: convert_xyz
+description: This class is a wrapper of the Open Babel tool.
+author: Data Scientist
+contact: data.scientist@labshare.org
+repository:
+documentation:
+citation:
+
+inputs:
+  - name: input_path
+    required: true
+    description: Path to the input file, Type string, File type input, Accepted formats gro, mol, mol2, pdb, pdbqt, sdf, Example file https//github.com/bioexcel/biobb_chemistry/raw/master/biobb_chemistry/test/data/babel/babel.smi
+    type: File
+    format:
+      uri: edam:format_2033, edam:format_3815, edam:format_3816, edam:format_1476, edam:format_1476, edam:format_3814
+  - name: output_xyz_path
+    required: true
+    description: Path to the output file, Type string, File type output, Accepted formats xyz
+    type: string
+    defaultValue: system.xyz
+    format:
+      uri: edam:format_3877
+outputs:
+  - name: output_xyz_path
+    required: true
+    description: Path to the output file
+    type: File
+    format:
+      uri: edam:format_3877
+ui:
+  - key: inputs.input_path
+    title: "input_path: "
+    description: "Path to the input file, Type string, File type input, Accepted formats gro, mol, mol2, pdb, pdbqt, sdf, Example file https//github.com/bioexcel/biobb_chemistry/raw/master/biobb_chemistry/test/data/babel/babel.smi"
+    type: File
+  - key: inputs.output_xyz_path
+    title: "output_xyz_path: "
+    description: "Path to the output file, Type string, File type output, Accepted formats xyz"
+    type: string
