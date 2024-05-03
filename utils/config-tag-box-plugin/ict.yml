@@ -1,0 +1,30 @@
+specVersion: "0.1.0"
+name: config_tag_box
+version: 0.1.0
+container: config-tag-box-plugin
+entrypoint:
+title: config_tag_box
+description: Returns a dictionary of the given arguments as a JSON-encoded string.
+author: Data Scientist
+contact: data.scientist@labshare.org
+repository:
+documentation:
+citation:
+
+inputs:
+  - name: offset
+    required: true
+    description: Extra distance (Angstroms) between the last residue atom and the box boundary.
+    type: float
+    format:
+      uri: edam:format_2330
+outputs:
+  - name: output_config_string
+    required: true
+    description: A dictionary of the given arguments as a JSON-encoded string.
+    type: string
+ui:
+  - key: inputs.offset
+    title: "offset: "
+    description: "Extra distance (Angstroms) between the last residue atom and the box boundary."
+    type: float
