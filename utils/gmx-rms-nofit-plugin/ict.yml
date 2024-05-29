@@ -1,0 +1,63 @@
+specVersion: "0.1.0"
+name: gmx_rms_nofit
+version: 0.1.0
+container: gmx-rms-nofit-plugin
+entrypoint:
+title: gmx_rms_nofit
+description: Wrapper of the GROMACS rms module for performing a Root Mean Square deviation (RMSd) analysis from a given GROMACS compatible trajectory.
+author: Data Scientist
+contact: data.scientist@labshare.org
+repository:
+documentation:
+citation:
+
+inputs:
+  - name: input_structure_path
+    required: true
+    description: Path to the input structure file, Type string, File type input, Accepted formats tpr, gro, g96, pdb, brk, ent, Example file https//github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/data/gromacs/topology.tpr
+    type: File
+    format:
+      uri: edam:format_2333, edam:format_2033, edam:format_2033, edam:format_1476, edam:format_2033, edam:format_1476
+  - name: input_traj_path
+    required: true
+    description: Path to the GROMACS trajectory file, Type string, File type input, Accepted formats xtc, trr, cpt, gro, g96, pdb, tng, Example file https//github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/data/gromacs/trajectory.trr
+    type: File
+    format:
+      uri: edam:format_3875, edam:format_3910, edam:format_2333, edam:format_2033, edam:format_2033, edam:format_1476, edam:format_3876
+  - name: output_xvg_path
+    required: true
+    description: Path to the XVG output file, Type string, File type output, Accepted formats xvg, Example file https//github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/reference/gromacs/ref_rms.xvg
+    type: string
+    defaultValue: system.xvg
+    format:
+      uri: edam:format_2030
+  - name: input_index_path
+    required: true
+    description: Path to the GROMACS index file, Type string, File type input, Accepted formats ndx, Example file https//github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/data/gromacs/index.ndx
+    type: File
+    format:
+      uri: edam:format_2033
+outputs:
+  - name: output_xvg_path
+    required: true
+    description: Path to the XVG output file
+    type: File
+    format:
+      uri: edam:format_2030
+ui:
+  - key: inputs.input_structure_path
+    title: "input_structure_path: "
+    description: "Path to the input structure file, Type string, File type input, Accepted formats tpr, gro, g96, pdb, brk, ent, Example file https//github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/data/gromacs/topology.tpr"
+    type: File
+  - key: inputs.input_traj_path
+    title: "input_traj_path: "
+    description: "Path to the GROMACS trajectory file, Type string, File type input, Accepted formats xtc, trr, cpt, gro, g96, pdb, tng, Example file https//github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/data/gromacs/trajectory.trr"
+    type: File
+  - key: inputs.output_xvg_path
+    title: "output_xvg_path: "
+    description: "Path to the XVG output file, Type string, File type output, Accepted formats xvg, Example file https//github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/reference/gromacs/ref_rms.xvg"
+    type: string
+  - key: inputs.input_index_path
+    title: "input_index_path: "
+    description: "Path to the GROMACS index file, Type string, File type input, Accepted formats ndx, Example file https//github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/data/gromacs/index.ndx"
+    type: File
