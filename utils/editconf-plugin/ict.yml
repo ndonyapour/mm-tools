@@ -1,0 +1,51 @@
+specVersion: "0.1.0"
+name: editconf
+version: 0.1.0
+container: editconf-plugin
+entrypoint:
+title: editconf
+description: Wrapper class for the GROMACS editconf module.
+author: Data Scientist
+contact: data.scientist@labshare.org
+repository:
+documentation:
+citation:
+
+inputs:
+  - name: input_crd_path
+    required: true
+    description: Path to the input GRO file, Type string, File type input, Accepted formats gro, pdb, Example file https//github.com/bioexcel/biobb_gromacs/raw/master/biobb_gromacs/test/data/gromacs/editconf.gro
+    type: File
+    format:
+      uri: edam:format_2033, edam:format_1476
+  - name: output_crd_path
+    required: true
+    description: Path to the output GRO file, Type string, File type output, Accepted formats pdb, gro, Example file https//github.com/bioexcel/biobb_gromacs/raw/master/biobb_gromacs/test/reference/gromacs/ref_editconf.gro
+    type: string
+    defaultValue: system.g96
+    format:
+      uri: edam:format_2033, edam:format_1476
+  - name: config
+    required: true
+    description: Advanced configuration options for biobb_gromacs Editconf. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_gromacs Editconf documentation https//biobb-gromacs.readthedocs.io/en/latest/gromacs.html#module-gromacs.editconf
+    type: string
+outputs:
+  - name: output_crd_path
+    required: true
+    description: Path to the output GRO file
+    type: File
+    format:
+      uri: edam:format_2033
+ui:
+  - key: inputs.input_crd_path
+    title: "input_crd_path: "
+    description: "Path to the input GRO file, Type string, File type input, Accepted formats gro, pdb, Example file https//github.com/bioexcel/biobb_gromacs/raw/master/biobb_gromacs/test/data/gromacs/editconf.gro"
+    type: File
+  - key: inputs.output_crd_path
+    title: "output_crd_path: "
+    description: "Path to the output GRO file, Type string, File type output, Accepted formats pdb, gro, Example file https//github.com/bioexcel/biobb_gromacs/raw/master/biobb_gromacs/test/reference/gromacs/ref_editconf.gro"
+    type: string
+  - key: inputs.config
+    title: "config: "
+    description: "Advanced configuration options for biobb_gromacs Editconf. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_gromacs Editconf documentation https//biobb-gromacs.readthedocs.io/en/latest/gromacs.html#module-gromacs.editconf"
+    type: string
