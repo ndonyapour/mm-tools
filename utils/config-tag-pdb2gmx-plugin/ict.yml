@@ -1,0 +1,60 @@
+specVersion: "0.1.0"
+name: config_tag_pdb2gmx
+version: 0.1.0
+container: config-tag-pdb2gmx-plugin
+entrypoint:
+title: config_tag_pdb2gmx
+description: Returns a dictionary of the given arguments as a JSON-encoded string.
+author: Data Scientist
+contact: data.scientist@labshare.org
+repository:
+documentation:
+citation:
+
+inputs:
+  - name: water_type
+    required: true
+    description: Water molecule type. Values spc, spce, tip3p, tip4p, tip5p, tips3p.
+    type: string
+    format:
+      uri: edam:format_2330
+  - name: forcefield
+    required: true
+    description: Force field to be used during the conversion. Values gromos45a3, charmm27, gromos53a6, amber96, amber99, gromos43a2, gromos54a7, gromos43a1, amberGS, gromos53a5, amber99sb, amber03, amber99sb-ildn,
+    type: string
+    format:
+      uri: edam:format_2330
+  - name: ignh
+    required: true
+    description: Should pdb2gmx ignore the hidrogens in the original structure.
+    type: boolean
+    format:
+      uri: edam:format_2330
+  - name: merge
+    required: true
+    description: Merge all chains into a single molecule.
+    type: boolean
+    format:
+      uri: edam:format_2330
+outputs:
+  - name: output_config_string
+    required: true
+    description: A dictionary of the given arguments as a JSON-encoded string.
+    type: string
+ui:
+  - key: inputs.water_type
+    title: "water_type: "
+    description: "Water molecule type. Values spc, spce, tip3p, tip4p, tip5p, tips3p."
+    type: string
+  - key: inputs.forcefield
+    title: "forcefield: "
+    description: "Force field to be used during the conversion. Values gromos45a3, charmm27, gromos53a6, amber96, amber99, gromos43a2, gromos54a7, gromos43a1, amberGS, gromos53a5, amber99sb, amber03, amber99sb-ildn, "
+    type: string
+  - key: inputs.ignh
+    title: "ignh: "
+    description: "Should pdb2gmx ignore the hidrogens in the original structure."
+    type: checkbox
+  - key: inputs.merge
+    title: "merge: "
+    description: "Merge all chains into a single molecule."
+    type: checkbox
