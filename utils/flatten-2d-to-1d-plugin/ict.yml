@@ -1,0 +1,30 @@
+specVersion: "0.1.0"
+name: flatten_2D_to_1D
+version: 0.1.0
+container: flatten-2D-to-1D-plugin
+entrypoint:
+title: flatten_2D_to_1D
+description: flatten a 2D array to 1D array
+author: Brandon Walker, Nazanin Donyapour
+contact: brandon.walker@axleinfo.com, nazanin.donyapour@axleinfo.com
+repository:
+documentation:
+citation:
+
+inputs:
+  - name: input_2D_array
+    required: true
+    description: Input 2D array, Type string[][], File type input, Accepted formats list[list[string]]
+    type: ['null', {'type': 'array', 'items': {'type': 'array', 'items': 'string'}}]
+    format:
+      uri: edam:format_2330
+outputs:
+  - name: output_1D_array
+    required: true
+    description: Output 1D array
+    type: [null, {'type': 'array', 'items': 'string'}]
+ui:
+  - key: inputs.input_2D_array
+    title: "input_2D_array: "
+    description: "Input 2D array, Type string[][], File type input, Accepted formats list[list[string]]"
+    type: ['null', {'type': 'array', 'items': {'type': 'array', 'items': 'string'}}]
